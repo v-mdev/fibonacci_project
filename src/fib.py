@@ -1,20 +1,47 @@
 import functools
 import argparse
+import numpy as np
+from numpy.linalg import matrix_power
 
-def fibonacci(n):
+iterations = 0
+def fibonacci_naive(n: int) -> int:
     if n < 0:
         raise ValueError("n must be grater than 0")
     elif n==0:
         return 0
     elif n==1:
+        iterations+=1
         return 1
     else:
-        return fibonacci(n-1) + fibonacci(n-2)
-    
-
-print(fibonacci(9))
+        iterations+=1
+        return fibonacci_naive(n-1) + fibonacci_naive(n-2)
 
 
+print(fibonacci_naive(9))
+
+
+
+def fibmat(n):
+    i = np.array([[0, 1], [1, 1]])
+    return np.matmul(matrix_power(i, n), np.array([1, 0]))[1]
+
+
+def fib(n):
+    if n%2 == 0:#even
+        return fib_even(n)
+    return fib_odd(n)
+
+def fib_odd(N):
+    n = int((N+1)/2)
+    Fn = fibmat(n) 
+    Fn1 = fibmat(n-1)
+    return Fn1**2 + Fn**2
+
+def fib_even(N):
+    n = int(N/2)
+    Fn = fibmat(n) 
+    Fn1 = fibmat(n-1)
+    return Fn * (2*Fn1 + Fn)
 
 
 def fibonacci_iterative(n: int) -> int:
@@ -47,7 +74,6 @@ def fibonacci_recursive_memoization(n: int) -> int:
         raise ValueError("n must be grater or equal to zero.")
     if n < 2:
         return n
-    
     if n in cache:
         return cache[n]
     
@@ -57,6 +83,7 @@ def fibonacci_recursive_memoization(n: int) -> int:
 
     return nth
 
+
 @functools.cache
 def fibonacci_recursive_cache(n: int) -> int:
     if n < 0:
@@ -65,12 +92,11 @@ def fibonacci_recursive_cache(n: int) -> int:
         return n
     return fibonacci_recursive_cache(n - 1) + fibonacci_recursive_cache(n - 2)
 
-print(functools.__name__)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("nth", type=int, help="Nth Fibonacci number.")
+    parser.add_argument("nth", type=int, help="n-th Fibonacci number")
     args = parser.parse_args()
 
     result = fibonacci_recursive(args.nth)
