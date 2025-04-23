@@ -5,6 +5,7 @@ from numpy.linalg import matrix_power
 
 iterations = 0
 def fibonacci_naive(n: int) -> int:
+    global iterations
     if n < 0:
         raise ValueError("n must be grater than 0")
     elif n==0:
@@ -15,10 +16,6 @@ def fibonacci_naive(n: int) -> int:
     else:
         iterations+=1
         return fibonacci_naive(n-1) + fibonacci_naive(n-2)
-
-
-print(fibonacci_naive(9))
-
 
 
 def fibmat(n):
@@ -92,12 +89,13 @@ def fibonacci_recursive_cache(n: int) -> int:
         return n
     return fibonacci_recursive_cache(n - 1) + fibonacci_recursive_cache(n - 2)
 
-
+fibonacci_naive(38)
+fibonacci_iterative(38)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("nth", type=int, help="n-th Fibonacci number")
     args = parser.parse_args()
 
-    result = fibonacci_recursive(args.nth)
+    result = fibonacci_naive(args.nth)
     print(result)
