@@ -5,6 +5,7 @@ from numpy.linalg import matrix_power
 
 iterations = 0
 def fibonacci_naive(n: int) -> int:
+    global iterations
     if n < 0:
         raise ValueError("n must be grater than 0")
     elif n==0:
@@ -15,9 +16,6 @@ def fibonacci_naive(n: int) -> int:
     else:
         iterations+=1
         return fibonacci_naive(n-1) + fibonacci_naive(n-2)
-
-
-print(fibonacci_naive(9))
 
 
 
