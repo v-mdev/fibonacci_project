@@ -1,6 +1,13 @@
 import unittest
 
-from fib import fibonacci_iterative, fibonacci_naive, fibonacci_recursive, fibonacci_recursive_cache, fibonacci_recursive_memoization, fib
+from fib import (
+    fibonacci_iterative,
+    fibonacci_naive,
+    fibonacci_recursive,
+    fibonacci_recursive_cache,
+    fibonacci_recursive_memoization,
+    fib
+)
 
 fibonacci_functions = [
     fibonacci_iterative,
