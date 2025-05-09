@@ -1,13 +1,13 @@
 from multiprocessing import Process, Queue
-
+from typing import Callable
 import numpy as np
 from numpy.linalg import matrix_power
 
-def fibonacci_worker(func :function, n :int, q: Queue, depth :int):
+def fibonacci_worker(func :Callable, n :int, q: Queue, depth :int):
     q.put(func(n, depth))
 
 
-def parallel_computing_recursive(func :function, n: int, depth :int):
+def parallel_computing_recursive(func :Callable, n: int, depth :int):
     q1 = Queue()
     q2 = Queue()
 
@@ -26,7 +26,7 @@ def parallel_computing_recursive(func :function, n: int, depth :int):
     return result1 + result2
 
 
-def parallel_computing_matrix(func :function, n: int, depth :int):
+def parallel_computing_matrix(func :Callable, n: int, depth :int):
     q1 = Queue()
     q2 = Queue()
 

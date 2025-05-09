@@ -1,3 +1,5 @@
+from typing import Callable
+
 from fib import (
     fib_iterative,
     fib_matrix,
@@ -22,7 +24,7 @@ parallel_functions = [
     fib_recursive_cache,
     ]
 
-def parallel_args(func: function, n: int, parallel: bool = False, depth: int = 0):
+def parallel_args(func: Callable, n: int, parallel: bool = False, depth: int = 0):
     if parallel:
         return func(n, parallel, depth)
     else:

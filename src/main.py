@@ -32,4 +32,4 @@ if __name__ == "__main__":
             fib_function = parallel_functions[parallel_choices.index(p)]
             result = parallel_args(fib_function, args.nth, args.parallel, args.depth)
 
-    
+    print(result) 
