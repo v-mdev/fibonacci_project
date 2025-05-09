@@ -1,13 +1,6 @@
 import argparse
 import textwrap
 from parser import parallel_choices, parallel_args, parallel_functions
-from fib import (
-    fib_iterative,
-    fib_recursive,
-    fib_recursive_cache,
-    fib_recursive_memoization,
-    fib_matrix,
-)
 
 if __name__ == "__main__":
 
