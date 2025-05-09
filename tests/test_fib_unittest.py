@@ -1,18 +1,18 @@
 import unittest
 
 from fib import (
-    fibonacci_iterative,
-    fibonacci_recursive,
-    fibonacci_recursive_cache,
-    fibonacci_recursive_memoization,
+    fib_iterative,
+    fib_recursive,
+    fib_recursive_cache,
+    fib_recursive_memoization,
     fib_matrix,
 )
 
 fibonacci_functions = [
-    fibonacci_iterative,
-    fibonacci_recursive,
-    fibonacci_recursive_cache,
-    fibonacci_recursive_memoization,
+    fib_iterative,
+    fib_recursive,
+    fib_recursive_cache,
+    fib_recursive_memoization,
     fib_matrix,
 ]
 
@@ -35,7 +35,7 @@ class TestFibonacci(unittest.TestCase):
 
     def test_fibonacci_negative(self):
         with self.assertRaises(ValueError):
-            fibonacci_iterative(-1) 
+            fib_iterative(-1) 
 
 
 

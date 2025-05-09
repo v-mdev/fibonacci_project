@@ -1,18 +1,18 @@
 import pytest
 
 from fib import (
-    fibonacci_iterative,
-    fibonacci_recursive,
-    fibonacci_recursive_cache,
-    fibonacci_recursive_memoization,
+    fib_iterative,
+    fib_recursive,
+    fib_recursive_cache,
+    fib_recursive_memoization,
     fib_matrix,
 )
 
 fibonacci_functions = [
-    fibonacci_iterative,
-    fibonacci_recursive,
-    fibonacci_recursive_cache,
-    fibonacci_recursive_memoization,
+    fib_iterative,
+    fib_recursive,
+    fib_recursive_cache,
+    fib_recursive_memoization,
     fib_matrix,
 ]
 
@@ -23,7 +23,7 @@ def test_fib_9_is_34():
 
 def test_fib_negative_raise_error():
     with pytest.raises(ValueError):
-        fibonacci_iterative(-1)
+        fib_iterative(-1)
 
 
 def test_fib_34_is_5702887():
