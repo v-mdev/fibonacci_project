@@ -2,20 +2,18 @@ import pytest
 
 from fib import (
     fibonacci_iterative,
-    fibonacci_naive,
     fibonacci_recursive,
     fibonacci_recursive_cache,
     fibonacci_recursive_memoization,
-    fib
+    fib_matrix,
 )
 
 fibonacci_functions = [
     fibonacci_iterative,
-    fibonacci_naive,
     fibonacci_recursive,
     fibonacci_recursive_cache,
     fibonacci_recursive_memoization,
-    fib
+    fib_matrix,
 ]
 
 def test_fib_9_is_34():
