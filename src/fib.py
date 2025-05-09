@@ -1,8 +1,5 @@
 import functools
-import argparse
-import textwrap
-import time
-from parser import parallel_args, parallel_choices
+
 from parallelization import parallel_computing_recursive, fib_even, fib_odd
 
 def fib_iterative(n: int) -> int:
@@ -65,36 +62,3 @@ def fib_recursive_cache(n: int, parallel :bool = False, depth :int = 0) -> int:
     if parallel and depth:
         return parallel_computing_recursive(fib_recursive_cache, n, depth)
     return fib_recursive_cache(n - 1) + fib_recursive_cache(n - 2)
-
-
-
-if __name__ == "__main__":
-
-    parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
-
-    parser.add_argument('nth', type=int, help='n-th fibonacci number')
-    parser.add_argument('-f', '--func', choices=parallel_choices, help=textwrap.dedent('''\
-        the fibonacci function to choose:
-          i   - iterative
-          m   - matrix exponentiation
-          r   - recursive
-          rm  - recursive with memoization
-          rc  - recursive with cache
-        '''), default='r', metavar='FUNC')
-    parser.add_argument('-p','--parallel', help='use the function with parallelization', action="store_true")
-    parser.add_argument('-d','--depth', type = int, help='how many cores to use in parallelization', default=2)
-
-    args = parser.parse_args()
-
-    if args.func == 'i':
-        result = fib_iterative(args.nth)
-    if args.func == 'm':
-        result = parallel_args(fib_matrix, args.nth, args.parallel, args.depth)
-    if args.func == 'r':
-        result = fib_recursive(fib_matrix, args.nth, args.parallel, args.depth)
-    if args.func == 'rm':
-        result = fib_recursive_memoization(fib_matrix, args.nth, args.parallel, args.depth)
-    if args.func == 'rc':
-        result = parallel_args(fib_recursive_cache, args.nth, args.parallel, args.depth)
-
-    

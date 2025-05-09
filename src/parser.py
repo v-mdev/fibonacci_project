@@ -1,9 +1,25 @@
+from fib import (
+    fib_iterative,
+    fib_matrix,
+    fib_recursive,
+    fib_recursive_memoization,
+    fib_recursive_cache,
+)
+
 parallel_choices = [
     'i',
     'm',
     'r',
     'rm',
-    'rc'
+    'rc',
+    ]
+
+parallel_functions = [
+    fib_iterative,
+    fib_matrix,
+    fib_recursive,
+    fib_recursive_memoization,
+    fib_recursive_cache,
     ]
 
 def parallel_args(func: function, n: int, parallel: bool = False, depth: int = 0):
