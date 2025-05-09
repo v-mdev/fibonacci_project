@@ -3,7 +3,7 @@ from typing import Callable
 import numpy as np
 from numpy.linalg import matrix_power
 
-def fibonacci_worker(func :Callable, n :int, q: Queue, depth :int):
+def fib_worker(func :Callable, n :int, q: Queue, depth :int):
     q.put(func(n, depth))
 
 
@@ -11,8 +11,8 @@ def parallel_computing_recursive(func :Callable, n: int, depth :int):
     q1 = Queue()
     q2 = Queue()
 
-    p1 = Process(target=fibonacci_worker, args=(func, n - 1, q1, depth-1))
-    p2 = Process(target=fibonacci_worker, args=(func, n - 2, q2, depth-1))
+    p1 = Process(target=fib_worker, args=(func, n - 1, q1, depth-1))
+    p2 = Process(target=fib_worker, args=(func, n - 2, q2, depth-1))
 
     p1.start()
     p2.start()
@@ -30,8 +30,8 @@ def parallel_computing_matrix(func :Callable, n: int, depth :int):
     q1 = Queue()
     q2 = Queue()
 
-    p1 = Process(target=fibonacci_worker, args=(func, n - 1, q1, depth-1))
-    p2 = Process(target=fibonacci_worker, args=(func, n - 2, q2, depth-1))
+    p1 = Process(target=fib_worker, args=(func, n - 1, q1, depth-1))
+    p2 = Process(target=fib_worker, args=(func, n - 2, q2, depth-1))
 
     p1.start()
     p2.start()
