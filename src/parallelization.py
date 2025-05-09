@@ -1,5 +1,7 @@
 from multiprocessing import Process, Queue
 
+import numpy as np
+from numpy.linalg import matrix_power
 
 def fibonacci_worker(func :function, n :int, q: Queue, depth :int):
     q.put(func(n, depth))
