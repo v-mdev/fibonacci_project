@@ -1,6 +1,6 @@
 import functools
 
-from parallelization import parallel_computing_recursive, fib_even, fib_odd
+from fib.parallelization import parallel_computing_recursive, fib_even, fib_odd
 
 def fib_iterative(n: int) -> int:
     if n < 0:

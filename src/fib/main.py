@@ -1,7 +1,8 @@
 import argparse
 import textwrap
 import logging
-from parser import parallel_choices, parallel_args, parallel_functions
+import typer
+from fib.parser import parallel_choices, parallel_args, parallel_functions
 
 def main():
     parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
@@ -38,4 +39,4 @@ def main():
     print(result)
 
 if __name__ == "__main__":
-    main()
+    typer.run(main)
