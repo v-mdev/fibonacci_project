@@ -3,8 +3,7 @@ import textwrap
 import logging
 from parser import parallel_choices, parallel_args, parallel_functions
 
-if __name__ == "__main__":
-
+def main():
     parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
 
     parser.add_argument('nth', type=int, help='n-th fibonacci number')
@@ -37,3 +36,6 @@ if __name__ == "__main__":
             result = parallel_args(fib_function, args.nth, args.parallel, args.depth)
 
     print(result)
+
+if __name__ == "__main__":
+    main()

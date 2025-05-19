@@ -16,3 +16,5 @@ dev = [
     "ruff>=0.11.6",
 ]
 
+[project.scripts]
+fib = "main:main"
