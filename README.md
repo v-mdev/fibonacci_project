@@ -21,6 +21,14 @@ For available options and help, use:
 fib --help
 ```
 
+## Installation
+
+Create a virtual environment and then install fibonacci-number:
+
+```bash
+pip install fibonacci-number
+```
+
 ## Running with Docker
 
 To build the Docker image:
