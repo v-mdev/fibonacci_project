@@ -3,7 +3,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "fib"
+name = "fibonacci_number"
 version = "0.0.1"
 authors = [
   { name="v-m.dev", email="v.mdeve.ops@gmail.com" },
@@ -13,7 +13,6 @@ readme = "README.md"
 requires-python = ">=3.10"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Topic :: Software Development",
 ]
@@ -27,11 +26,14 @@ dependencies = [
 Homepage = "https://github.com/v-mdev/fibonacci_project"
 Issues = "https://github.com/v-mdev/fibonacci_project/issues"
 
-[dependency-groups]
+[project.optional-dependencies]
 dev = [
     "ruff>=0.11.6",
     "pytest>=8.3.5",
 ]
 
+[tool.setuptools.packages.find]
+where = ["src"]
+
 [project.scripts]
-fib = "main:main"
+fib = "fib.main:main"

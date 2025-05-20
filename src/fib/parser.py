@@ -1,6 +1,6 @@
 from typing import Callable
 
-from fib import (
+from fib.fib import (
     fib_iterative,
     fib_matrix,
     fib_recursive,
