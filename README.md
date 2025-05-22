@@ -1,6 +1,7 @@
 # Fibonacci Parallelized
 Project focused on implementing and experimenting with different Fibonacci algorithms, including several parallelization strategies to improve performance and efficiency.
 
+> **Note:** This project is not finished and is currently under active development.
 ## Getting started
 First, set up your Python environment:
 
